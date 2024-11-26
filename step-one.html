@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/stylesheet.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="assets/images/favicon/favicon.ico"
+    />
+    <title>Test Yourself</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="headerDiv">
+        <p>Test Yourself</p>
+        <i class="fa-solid fa-book logo" style="color: #000000"></i>
+      </div>
+    </header>
+
+    <main>
+      <div class="form">
+        <form id="quizForm" onsubmit="saveDataAndRedirect(event)">
+          <label for="quizTitle">Quiz Title:</label>
+          <input
+            id="quizTitle"
+            type="text"
+            placeholder="My Quiz"
+            maxlength="30"
+            required
+          />
+          <label for="about">About:</label>
+          <textarea
+            id="about"
+            placeholder="Tell us more about your topic!"
+            maxlength="140"
+          ></textarea>
+          <p class="charCount">(<span id="charCount">0</span>/140)</p>
+          <label for="questionAmount">No. of questions:</label>
+          <input
+            id="questionAmount"
+            type="number"
+            min="1"
+            max="20"
+            placeholder="(Max 20)"
+            required
+          />
+          <button type="submit">Next</button>
+        </form>
+      </div>
+    </main>
+
+    <footer><p>Jasmine Price 2024</p></footer>
+    <script
+      src="https://kit.fontawesome.com/d764441fbc.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>

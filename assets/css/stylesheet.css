@@ -1,0 +1,219 @@
+/*Font Import*/
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap");
+
+:root {
+  --green: #12af26;
+  --light-green: #dafbde;
+  --white: #ffffff;
+  --black: #000000;
+  --accent: #ffad0a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "open Sans", sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+/*Header*/
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--green);
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.headerDiv {
+  display: flex;
+  justify-content: flex-end;
+  width: 95%;
+  max-width: 50rem;
+  font-size: 2rem;
+  color: --var(black);
+}
+
+i {
+  font-size: 2.5rem;
+  margin-left: 1rem;
+}
+
+/*Main Body - landing and about*/
+main {
+  margin: 5rem 0;
+  background-color: var(--light-green);
+  height: calc(100vh - 10rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.mainDiv {
+  background-color: var(--white);
+  flex-grow: 0.5;
+  max-width: 50rem;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-size: x-large;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+a {
+  background-color: var(--green);
+  text-decoration: none;
+  color: var(--white);
+  margin-top: 1rem;
+  padding: 0.25rem 0;
+  border-radius: 1rem;
+}
+
+a:active {
+  background-color: var(--accent);
+  color: black;
+}
+
+div.background {
+  background-color: var(--light-green);
+  text-align: left;
+  margin: 1rem 0;
+  padding: 1rem 0;
+  border-radius: 1rem;
+}
+
+li {
+  margin-left: 2rem;
+}
+
+/*Forms*/
+div.form {
+  background-color: var(--white);
+  width: 90%;
+  margin-top: 1rem;
+  max-width: 50rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-size: x-large;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  text-align: left;
+  background-color: var(--green);
+  color: var(--black);
+  padding: 0.75rem;
+  border-radius: 1rem;
+}
+
+input {
+  height: 3rem;
+  width: 100%;
+  text-align: right;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  background-color: var(--white);
+  border: solid var(--green) 2px;
+  font-size: x-large;
+  border-radius: 1rem;
+}
+
+input:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+textarea {
+  height: 10rem;
+  text-align: right;
+  padding: 1rem;
+  background-color: var(--white);
+  border: solid var(--green) 2px;
+  font-size: x-large;
+  border-radius: 1rem;
+  resize: none;
+}
+
+textarea:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+p.charCount {
+  text-align: right;
+  font-size: large;
+  margin-bottom: 0.5rem;
+}
+
+button {
+  background-color: var(--green);
+  color: var(--black);
+  font-weight: bold;
+  font-size: x-large;
+  margin-top: 0.5rem;
+  border-radius: 2rem;
+  border: none;
+}
+
+button:active {
+  background-color: var(--accent);
+  color: black;
+}
+
+/*headers*/
+
+h1, p.about {
+  background-color: var(--green);
+  text-align: left;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+p.about {
+  background-color: var(--light-green);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--green);
+  height: 5rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 1rem;
+  color: var(--white);
+  font-size: 1.5rem;
+}
+
+/*Media Queries*/
+
+/* Styles for screens 400px or larger (e.g., large phones, landscape phones) */
+@media screen and (min-width: 315px) {
+  body {
+    background-color: ;
+  }
+}
+
+/* Styles for screens 600px or larger (e.g., tablets) */
+@media screen and (min-width: 600px) {
+}
+
+/* Styles for screens 1024px or larger (e.g., desktops) */
+@media screen and (min-width: 1024px) {
+}
