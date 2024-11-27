@@ -14,7 +14,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "open Sans", sans-serif;
-  overflow: hidden;
+  overflow: auto;
 }
 
 html {
@@ -234,11 +234,47 @@ p.about {
 
 /*Quiz Builder*/
 
+#questionContainer {
+  border: ;
+}
+
 .questionBox {
   display: flex;
   flex-direction: column;
-  border: solid;
+  padding-bottom: 2rem;
+  border-bottom: solid var(--green) 4px;
 }
+
+label.questionLabel {
+  background-color: var(--green);
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+input.questionInput {
+  background: var(--light-green);
+  font-size: large;
+  border: none;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+label.answerLabel {
+  padding: 1rem;
+  font-size: large;
+}
+
+input.answerInput {
+  background: var(--light-green);
+  font-size: large;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+
+/*Footer*/
 
 footer {
   position: fixed;
