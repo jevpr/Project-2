@@ -18,9 +18,24 @@ function saveDataAndRedirect(event) {
 function loadData() {
   const updatedTitle = document.getElementById("updatedTitle");
   const updatedAbout = document.getElementById("updatedAbout");
-  updatedTitle.innerHTML = window.sessionStorage.getItem("quizTitle");
-  updatedAbout.innerHTML = window.sessionStorage.getItem("about");
-  console.log("data loaded");
+
+  const quizTitle = window.sessionStorage.getItem("quizTitle");
+  const about = window.sessionStorage.getItem("about");
+
+  if (quizTitle && about) {
+    updatedTitle.innerHTML = quizTitle;
+    updatedAbout.innerHTML = about;
+  } else if (quizTitle && !about) {
+    updatedTitle.innerHTML = quizTitle;
+    updatedAbout.style.display = "none";
+  } else {
+    updatedTitle.innerHTML = "Oops! Something has gone wrong.";
+    updatedAbout.innerHTML =
+      'Please reload the homepage <a href="index.html">here</a>.';
+    updatedAbout.style.display = "block";
+  }
+
+  console.log("Data loaded");
 }
 
 //Calls the function which will populate the form on step-two

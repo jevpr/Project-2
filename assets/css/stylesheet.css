@@ -14,6 +14,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "open Sans", sans-serif;
+  overflow: hidden;
 }
 
 html {
@@ -27,18 +28,17 @@ header {
   width: 100%;
   background-color: var(--green);
   height: 5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  align-content: center;
+  justify-items: center;
 }
 
 div.headerDiv {
   display: flex;
   justify-content: flex-end;
-  width: 95%;
-  max-width: 50rem;
   font-size: 2rem;
   color: --var(black);
+  width: 90%;
+  max-width: 70rem;
 }
 
 i {
@@ -46,28 +46,38 @@ i {
   margin-left: 1rem;
 }
 
+body {
+  height: 100%;
+  background-color: var(--light-green);
+}
+
+/*Body*/
+
 /*Main Body - landing and about*/
 main {
-  margin: 5rem 0;
-  background-color: var(--light-green);
-  height: calc(100vh - 10rem);
+  border: solid red 1px;
+  margin: 5rem 0 0 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: calc(100vh - 10rem);
 }
 
 div.mainDiv {
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
   background-color: var(--white);
-  flex-grow: 0.5;
-  max-width: 50rem;
-  margin: 1rem;
+  flex-grow: 1;
+  width: 95%;
+  max-width: 70rem;
+  margin: 0.25rem;
   padding: 1rem;
   border-radius: 1rem;
   font-size: x-large;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
 }
 
 a {
@@ -75,11 +85,13 @@ a {
   text-decoration: none;
   color: var(--white);
   margin-top: 1rem;
-  padding: 0.25rem 0;
+  padding: 0.25rem 1rem;
   border-radius: 1rem;
+  width: 50%;
+  min-width: 20rem;
 }
 
-a:active {
+a:hover {
   background-color: var(--accent);
   color: black;
 }
@@ -92,27 +104,40 @@ div.background {
   border-radius: 1rem;
 }
 
+div.spacer {
+  height: 5rem;
+}
+
 li {
   margin-left: 2rem;
 }
 
 /*Forms*/
+
 div.form {
+  align-self: center;
+  justify-self: center;
   background-color: var(--white);
   width: 90%;
-  margin-top: 1rem;
-  max-width: 50rem;
+  max-width: 70rem;
   padding: 1rem;
   border-radius: 1rem;
   font-size: x-large;
+  height: 95%;
+  display: flex;
+  justify-content: center;
 }
 
 form {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  flex-grow: 1;
+  max-width: 50rem;
 }
 
-label {
+label.form {
   text-align: left;
   background-color: var(--green);
   color: var(--black);
@@ -120,7 +145,7 @@ label {
   border-radius: 1rem;
 }
 
-input {
+input.form {
   height: 3rem;
   width: 100%;
   text-align: right;
@@ -132,7 +157,7 @@ input {
   border-radius: 1rem;
 }
 
-input:focus {
+input.form:focus {
   border-color: var(--accent);
   outline: none;
 }
@@ -167,24 +192,52 @@ button {
   margin-top: 0.5rem;
   border-radius: 2rem;
   border: none;
+  padding: 1rem;
+}
+
+button:hover {
+  background-color: var(--accent);
 }
 
 button:active {
-  background-color: var(--accent);
-  color: black;
+  background-color: var(--green);
 }
 
 /*headers*/
 
-h1, p.about {
-  background-color: var(--green);
-  text-align: left;
+div.quizBuilder {
+  background-color: var(--white);
+  align-self: center;
+  width: 95%;
+  max-width: 70rem;
+  margin-top: 1rem;
+  padding: 1rem 1rem 0 1rem;
   border-radius: 1rem;
+  min-height: 95%;
+}
+
+h1 {
+  background-color: var(--green);
   padding: 1rem;
+  border-radius: 1rem;
+  font-size: 1.5rem;
 }
 
 p.about {
   background-color: var(--light-green);
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 100%;
+  border: solid var(--green) 2px;
+  margin-bottom: 1rem;
+}
+
+/*Quiz Builder*/
+
+.questionBox {
+  display: flex;
+  flex-direction: column;
+  border: solid;
 }
 
 footer {
@@ -206,7 +259,6 @@ footer {
 /* Styles for screens 400px or larger (e.g., large phones, landscape phones) */
 @media screen and (min-width: 315px) {
   body {
-    background-color: ;
   }
 }
 

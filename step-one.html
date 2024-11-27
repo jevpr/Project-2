@@ -23,23 +23,25 @@
     <main>
       <div class="form">
         <form id="quizForm" onsubmit="saveDataAndRedirect(event)">
-          <label for="quizTitle">Quiz Title:</label>
+          <label for="quizTitle" class="form">Quiz Title:</label>
           <input
+            class="form"
             id="quizTitle"
             type="text"
             placeholder="My Quiz"
             maxlength="30"
             required
           />
-          <label for="about">About:</label>
+          <label for="about" class="form">About:</label>
           <textarea
             id="about"
             placeholder="Tell us more about your topic!"
             maxlength="140"
           ></textarea>
           <p class="charCount">(<span id="charCount">0</span>/140)</p>
-          <label for="questionAmount">No. of questions:</label>
+          <label for="questionAmount" class="form">No. of questions:</label>
           <input
+            class="form"
             id="questionAmount"
             type="number"
             min="1"
