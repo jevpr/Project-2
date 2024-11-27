@@ -14,7 +14,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "open Sans", sans-serif;
-  overflow: auto;
 }
 
 html {
@@ -61,6 +60,7 @@ main {
   display: flex;
   flex-direction: column;
   height: calc(100vh - 10rem);
+  overflow: auto;
 }
 
 div.mainDiv {
@@ -214,7 +214,6 @@ div.quizBuilder {
   margin-top: 1rem;
   padding: 1rem 1rem 0 1rem;
   border-radius: 1rem;
-  min-height: 95%;
 }
 
 h1 {
@@ -230,14 +229,13 @@ p.about {
   border-radius: 1rem;
   width: 100%;
   border: solid var(--green) 2px;
-  margin-bottom: 1rem;
 }
 
 /*Quiz Builder*/
 
 hr {
   border: solid var(--green) 2px;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 }
 
 .questionBox {
@@ -262,6 +260,7 @@ input.questionInput {
   border: none;
   padding: 1rem;
   border-radius: 1rem;
+  text-align: end;
 }
 
 label.answerLabel {
