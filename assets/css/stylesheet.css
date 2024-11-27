@@ -14,6 +14,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "open Sans", sans-serif;
+  overflow: hidden;
 }
 
 html {
@@ -55,12 +56,11 @@ body {
 
 /*Main Body - landing and about*/
 main {
-  border: solid red 1px;
   margin: 5rem 0 0 0;
   display: flex;
   flex-direction: column;
   height: calc(100vh - 10rem);
-  overflow: auto;
+  
 }
 
 div.mainDiv {
@@ -214,6 +214,7 @@ div.quizBuilder {
   margin-top: 1rem;
   padding: 1rem 1rem 0 1rem;
   border-radius: 1rem;
+  overflow: auto;
 }
 
 h1 {
