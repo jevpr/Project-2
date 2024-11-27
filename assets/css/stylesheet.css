@@ -32,13 +32,14 @@ header {
   justify-items: center;
 }
 
-div.headerDiv {
+a.headerDiv {
   display: flex;
   justify-content: flex-end;
   font-size: 2rem;
-  color: --var(black);
   width: 90%;
   max-width: 70rem;
+  text-decoration: none;
+  color: var(--black);
 }
 
 i {
@@ -80,7 +81,7 @@ div.mainDiv {
   font-size: x-large;
 }
 
-a {
+a.indexPage {
   background-color: var(--green);
   text-decoration: none;
   color: var(--white);
@@ -91,7 +92,7 @@ a {
   min-width: 20rem;
 }
 
-a:hover {
+a.indexPage:hover {
   background-color: var(--accent);
   color: black;
 }
@@ -234,8 +235,9 @@ p.about {
 
 /*Quiz Builder*/
 
-#questionContainer {
-  border: ;
+hr {
+  border: solid var(--green) 2px;
+  margin-bottom: 1rem;
 }
 
 .questionBox {
@@ -243,6 +245,7 @@ p.about {
   flex-direction: column;
   padding-bottom: 2rem;
   border-bottom: solid var(--green) 4px;
+  margin-bottom: 2rem;
 }
 
 label.questionLabel {
