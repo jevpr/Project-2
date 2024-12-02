@@ -7,6 +7,7 @@
   --white: #ffffff;
   --black: #000000;
   --accent: #ffad0a;
+  --light-accent: #ffcf70;
 }
 
 * {
@@ -60,7 +61,6 @@ main {
   display: flex;
   flex-direction: column;
   height: calc(100vh - 10rem);
-  
 }
 
 div.mainDiv {
@@ -129,7 +129,7 @@ div.form {
   justify-content: center;
 }
 
-form {
+#quizForm {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -234,16 +234,21 @@ p.about {
 
 /*Quiz Builder*/
 
-hr {
-  border: solid var(--green) 2px;
-  margin: 1rem 0;
+#questionContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+div.spacerForm {
+  margin: 2rem;
+  border-bottom: dotted var(--green) 4px;
 }
 
 .questionBox {
   display: flex;
   flex-direction: column;
   padding-bottom: 2rem;
-  border-bottom: solid var(--green) 4px;
+  border-bottom: dotted var(--green) 4px;
   margin-bottom: 2rem;
 }
 
@@ -261,13 +266,38 @@ input.questionInput {
   border: none;
   padding: 1rem;
   border-radius: 1rem;
-  text-align: end;
 }
 
-label.answerLabel {
-  padding: 1rem;
-  font-size: large;
+.answerBox {
+  background-color: ;
 }
+
+.rightRadioClass,
+.wrongRadioClass {
+  //opacity: 0;
+  cursor: pointer;
+  margin: 0 0.5rem 0 0.5rem;
+}
+
+.rightLabelClass,
+.wrongLabelClass {
+  font-size: large;
+  border-radius: 1rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.rightLabelClass {
+  background-color: var(--light-green);
+  padding: 0.5rem 1rem 0.5rem 0;
+}
+
+
+.wrongLabelClass {
+  background-color: var(--light-accent);
+  padding: 0.5rem 1rem 0.5rem 0;
+}
+
 
 input.answerInput {
   background: var(--light-green);
@@ -275,6 +305,40 @@ input.answerInput {
   border: none;
   padding: 0.5rem;
   border-radius: 1rem;
+  margin: 0.5rem;
+  width: 60%;
+}
+
+#submitTwo {
+  width: 50%;
+  align-self: center;
+  margin-bottom: 1rem;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.addAnswer,
+.deleteAnswer {
+  font-size: large;
+  padding: 0.5rem;
+  flex-grow: 0.4;
+  border: solid white 0.25rem;
+}
+
+.addAnswer:hover {
+  background-color: var(--green);
+  border: solid var(--accent) 0.25rem;
+}
+
+.deleteAnswer {
+  background-color: var(--accent);
+}
+
+.deleteAnswer:hover {
+  border: solid var(--green) 0.25rem;
 }
 
 /*Footer*/
@@ -297,8 +361,7 @@ footer {
 
 /* Styles for screens 400px or larger (e.g., large phones, landscape phones) */
 @media screen and (min-width: 315px) {
-  body {
-  }
+
 }
 
 /* Styles for screens 600px or larger (e.g., tablets) */
