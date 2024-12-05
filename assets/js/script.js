@@ -2,6 +2,19 @@
 console.log("Hello World!");
 const questionContainer = document.getElementById("questionContainer");
 
+//Updating Character count step-one
+/*const aboutTextarea = document.getElementById("about");
+const charCount = document.getElementById("charCount");
+
+const updateCharCount = () => {
+  const aboutCount = aboutTextarea.value.length;
+  charCount.innerHTML = aboutCount;
+};
+
+aboutTextarea.addEventListener("input", updateCharCount);
+
+updateCharCount();*/
+
 //Stores the input from the form and redirects
 function saveDataAndRedirect(event) {
   event.preventDefault();
@@ -48,12 +61,12 @@ function loadEmptyQuestions() {
 
     //addAnswerbutton
     const addAnswer = document.createElement("button");
-    addAnswer.innerHTML = " + Add Answer +";
+    addAnswer.innerHTML = "Add Answer";
     addAnswer.classList.add("addAnswer");
 
     //deleteAnswerButton
     const deleteAnswer = document.createElement("button");
-    deleteAnswer.innerHTML = " - Delete answer -";
+    deleteAnswer.innerHTML = "Delete answer";
     deleteAnswer.classList.add("deleteAnswer");
 
     let answerCount = 0;
@@ -102,12 +115,16 @@ function loadEmptyQuestions() {
       wrongLabel.for = `Q:${parentId}_A:${answerCount}_RightRadio`;
       wrongLabel.classList.add("wrongLabelClass");
 
+      const rightWrongContainer = document.createElement("div");
+      rightWrongContainer.classList.add("rightWrongContainer");
+
       questionBox.appendChild(answerBox);
       answerBox.appendChild(answerInput);
-      answerBox.appendChild(rightLabel);
-      rightLabel.prepend(rightRadio);
-      answerBox.appendChild(wrongLabel);
-      wrongLabel.prepend(wrongRadio);
+      answerBox.appendChild(rightWrongContainer);
+      rightWrongContainer.appendChild(rightRadio);
+      rightWrongContainer.appendChild(rightLabel);
+      rightWrongContainer.appendChild(wrongRadio);
+      rightWrongContainer.appendChild(wrongLabel);
     });
 
     deleteAnswer.addEventListener("click", function (event) {
@@ -184,3 +201,16 @@ document.addEventListener("DOMContentLoaded", function () {
   questionContainer.appendChild(submitButton);
   console.log("Function called");
 });
+
+/*I think you will need to change the above so 
+that it specifies /step-two.html being loaded. 
+Work for tomorrow, begin working on the 'submit' 
+button. I think for the sake of this project, 
+we will have at least one answer that's correct. 
+
+If a user creates a question with no right answers, the 
+following alert will pop up: 
+'Answer [x] has no right answer. Please select a right 
+answer, or use 'None of the above' as your right 
+answer.
+*/

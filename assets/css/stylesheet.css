@@ -268,36 +268,13 @@ input.questionInput {
   border-radius: 1rem;
 }
 
+/*Answer Box, inputs, right wrong labels / radios*/
 .answerBox {
-  background-color: ;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
 }
-
-.rightRadioClass,
-.wrongRadioClass {
-  //opacity: 0;
-  cursor: pointer;
-  margin: 0 0.5rem 0 0.5rem;
-}
-
-.rightLabelClass,
-.wrongLabelClass {
-  font-size: large;
-  border-radius: 1rem;
-  cursor: pointer;
-  margin-left: 0.5rem;
-}
-
-.rightLabelClass {
-  background-color: var(--light-green);
-  padding: 0.5rem 1rem 0.5rem 0;
-}
-
-
-.wrongLabelClass {
-  background-color: var(--light-accent);
-  padding: 0.5rem 1rem 0.5rem 0;
-}
-
 
 input.answerInput {
   background: var(--light-green);
@@ -305,8 +282,21 @@ input.answerInput {
   border: none;
   padding: 0.5rem;
   border-radius: 1rem;
-  margin: 0.5rem;
-  width: 60%;
+  width: 100%;
+}
+
+.rightWrongContainer {
+  font-size: large;
+}
+
+.rightRadioClass,
+.wrongRadioClass {
+  margin-right: 0.5rem;
+}
+
+.rightLabelClass,
+.wrongLabelClass {
+  margin-right: 1rem;
 }
 
 #submitTwo {
@@ -318,6 +308,7 @@ input.answerInput {
 .buttonContainer {
   display: flex;
   justify-content: center;
+  margin-bottom: 1rem;
 }
 
 .addAnswer,
@@ -361,7 +352,9 @@ footer {
 
 /* Styles for screens 400px or larger (e.g., large phones, landscape phones) */
 @media screen and (min-width: 315px) {
-
+  body {
+    /*background-color: red;*/
+  }
 }
 
 /* Styles for screens 600px or larger (e.g., tablets) */
