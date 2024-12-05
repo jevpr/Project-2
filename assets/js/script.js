@@ -1,20 +1,6 @@
 //General Variables
 console.log("Hello World!");
 const questionContainer = document.getElementById("questionContainer");
-
-//Updating Character count step-one
-/*const aboutTextarea = document.getElementById("about");
-const charCount = document.getElementById("charCount");
-
-const updateCharCount = () => {
-  const aboutCount = aboutTextarea.value.length;
-  charCount.innerHTML = aboutCount;
-};
-
-aboutTextarea.addEventListener("input", updateCharCount);
-
-updateCharCount();*/
-
 //Stores the input from the form and redirects
 function saveDataAndRedirect(event) {
   event.preventDefault();
@@ -28,24 +14,59 @@ function saveDataAndRedirect(event) {
   console.log("data saved");
 }
 
+//Loads your inputs and inserts into HTML
+function loadData() {
+  const updatedTitle = document.getElementById("updatedTitle");
+  const updatedAbout = document.getElementById("updatedAbout");
+
+  const quizTitle = window.sessionStorage.getItem("quizTitle");
+  const about = window.sessionStorage.getItem("about");
+
+  if (quizTitle && about) {
+    updatedTitle.innerHTML = quizTitle;
+    updatedAbout.innerHTML = about;
+  } else if (quizTitle && !about) {
+    updatedTitle.innerHTML = quizTitle;
+    updatedAbout.style.display = "none";
+  } else {
+    updatedTitle.innerHTML = "Oops! Something has gone wrong.";
+    updatedAbout.innerHTML =
+      'Please reload the homepage <a href="index.html">here</a>.';
+    updatedAbout.style.display = "block";
+    const hideSubmit = document.getElementById(submitTwo);
+    hideSubmit.style.display = "none";
+  }
+
+  console.log("Data loaded");
+}
+
+/*Retrieves the Data from Session Storage and uses it to create
+the quiz builder*/
 function loadEmptyQuestions() {
+  //retrieves number of Questions from session storage
   const questionAmount = parseInt(
     window.sessionStorage.getItem("questionAmount")
   );
+
+  /*
+
+  // If the question amount is invalid or not set, we exit.
   if (isNaN(questionAmount) || questionAmount <= 0) {
     console.error("Invalid question amount");
-    return; // If the question amount is invalid or not set, we exit.
+    return; 
   }
 
   // Clear any existing content before adding new questions (optional)
-  questionContainer.innerHTML = "";
+  questionContainer.innerHTML = "";*/
 
+  /* A for loop which cycles through questionAmount, 
+  and creates a question input for each one*/
   for (let i = 1; i <= questionAmount; i++) {
     const questionBox = document.createElement("div");
     questionBox.classList.add("questionBox");
     questionBox.id = i;
 
-    // Create question label input
+    // Create question label & input
     const questionLabel = document.createElement("label");
     questionLabel.textContent = `Question ${i}:`;
     questionLabel.classList.add("questionLabel");
@@ -55,7 +76,7 @@ function loadEmptyQuestions() {
     questionInput.classList.add("questionInput");
     questionInput.id = `Question${i}`;
 
-    //container for buttons
+    //container for 'add / delete answer' buttons
     const buttonContainer = document.createElement("div");
     buttonContainer.classList = "buttonContainer";
 
@@ -69,6 +90,7 @@ function loadEmptyQuestions() {
     deleteAnswer.innerHTML = "Delete answer";
     deleteAnswer.classList.add("deleteAnswer");
 
+    //Establishes number of answers
     let answerCount = 0;
 
     //function for the addAnswer button
@@ -154,52 +176,70 @@ function loadEmptyQuestions() {
     // Append the question box to the container
     questionContainer.appendChild(questionBox);
   }
-}
 
-//Loads your inputs and inserts into HTML
-function loadData() {
-  const updatedTitle = document.getElementById("updatedTitle");
-  const updatedAbout = document.getElementById("updatedAbout");
-
-  const quizTitle = window.sessionStorage.getItem("quizTitle");
-  const about = window.sessionStorage.getItem("about");
-
-  if (quizTitle && about) {
-    updatedTitle.innerHTML = quizTitle;
-    updatedAbout.innerHTML = about;
-  } else if (quizTitle && !about) {
-    updatedTitle.innerHTML = quizTitle;
-    updatedAbout.style.display = "none";
-  } else {
-    updatedTitle.innerHTML = "Oops! Something has gone wrong.";
-    updatedAbout.innerHTML =
-      'Please reload the homepage <a href="index.html">here</a>.';
-    updatedAbout.style.display = "block";
-    const hideSubmit = document.getElementById(submitTwo);
-    hideSubmit.style.display = "none";
-  }
-
-  console.log("Data loaded");
-}
-
-//Calls the function which will populate the form on step-two
-/*For now, the function is called when DOMcontent loads. 
-However, if you want to load specifically on /step-two, swap in 
-the code that's in the comment below*/
-document.addEventListener("DOMContentLoaded", function () {
-  /*if (window.location.pathname === "/step-two.html") {
-    loadData();
-    console.log("Function called");
-  }*/
-  loadData();
-  loadEmptyQuestions();
-
+  //finally, appends the submit button
   const submitButton = document.createElement("button");
   submitButton.textContent = "Submit";
   submitButton.type = "submit";
   submitButton.id = "submitTwo";
   questionContainer.appendChild(submitButton);
-  console.log("Function called");
+
+  //Controls the actions for the submit button on the 2nd page
+  submitButton.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    const questions = questionContainer.querySelectorAll(".questionBox");
+    const questionArray = [];
+
+    questions.forEach((question) => {
+      const questionObject = {};
+      questionObject.questionNumber = question.id;
+      questionObject.answers = [];
+      questionArray.push(questionObject);
+      //Should the above line not go at the very end of the function?
+
+      const answerBoxes = question.querySelectorAll(".answerBox");
+      answerBoxes.forEach((answerBox) => {
+        const answerNumber = answerBox.querySelectorAll(".answerInput").id;
+        const answerText = answerBox.querySelectorAll(".answerInput").value;
+
+        //the following lines need to be checked to see if they work
+        let rightWrong;
+
+        function correctOrNot() {
+          const inputs = answerBox.querySelectorAll("input");
+
+          for (const input of inputs) {
+            if (radio.checked) {
+              rightWrong = radio.id;
+              break;
+            }
+          }
+        }
+
+        const answer = [answerNumber, answerText, rightWrong];
+        questionObject.answers.push(answer);
+      });
+    });
+    console.log(questionArray);
+  });
+}
+
+/*
+questionObject {
+questionNumber: 1, 
+answers: [[answer1, right], [answer2, wrong], [answer3, wrong]],
+}*/
+
+//Calls the function which will populate the form on step-two
+
+document.addEventListener("DOMContentLoaded", function () {
+  loadData();
+  if (window.location.pathname === "/step-two.html") {
+    loadEmptyQuestions();
+
+    console.log("Function called step-two");
+  }
 });
 
 /*I think you will need to change the above so 
