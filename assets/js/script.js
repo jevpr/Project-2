@@ -177,7 +177,7 @@ function loadEmptyQuestions() {
     questionContainer.appendChild(questionBox);
   }
 
-  //finally, appends the submit button
+  //Appends the submit button
   const submitButton = document.createElement("button");
   submitButton.textContent = "Submit";
   submitButton.type = "submit";
@@ -188,38 +188,48 @@ function loadEmptyQuestions() {
   submitButton.addEventListener("click", function (event) {
     event.preventDefault();
 
+    //First, accesses all question containers:
     const questions = questionContainer.querySelectorAll(".questionBox");
     const questionArray = [];
 
+    // Looping through each question container
     questions.forEach((question) => {
       const questionObject = {};
       questionObject.questionNumber = question.id;
-      questionObject.answers = [];
-      questionArray.push(questionObject);
-      //Should the above line not go at the very end of the function?
 
+      const questionText = question.querySelector(".questionInput").value;
+      questionObject.questionText = questionText;
+
+      questionObject.answers = [];
+      // Cycle through the answer boxes, and pull ids and values
       const answerBoxes = question.querySelectorAll(".answerBox");
       answerBoxes.forEach((answerBox) => {
-        const answerNumber = answerBox.querySelectorAll(".answerInput").id;
-        const answerText = answerBox.querySelectorAll(".answerInput").value;
+        const inputs = answerBox.querySelectorAll(".answerInput");
+        inputs.forEach((input) => {
+          const answerNumber = input.id;
+          const answerText = input.value;
+          const answer = [answerNumber, answerText];
 
-        //the following lines need to be checked to see if they work
-        let rightWrong;
-
-        function correctOrNot() {
-          const inputs = answerBox.querySelectorAll("input");
-
-          for (const input of inputs) {
+          const rightWrongContainer = answerBox.querySelector(
+            ".rightWrongContainer"
+          );
+          const radios = rightWrongContainer.querySelectorAll(
+            "input[type='radio']"
+          );
+          let rightWrong = null;
+          radios.forEach((radio) => {
             if (radio.checked) {
               rightWrong = radio.id;
-              break;
             }
-          }
-        }
+          });
 
-        const answer = [answerNumber, answerText, rightWrong];
-        questionObject.answers.push(answer);
+          answer.push(rightWrong);
+
+          //Add to question object
+          questionObject.answers.push(answer);
+        });
       });
+      questionArray.push(questionObject);
     });
     console.log(questionArray);
   });
