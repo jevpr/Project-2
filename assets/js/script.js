@@ -237,10 +237,6 @@ function loadEmptyQuestions() {
   });
 }
 
-function captureQuizData(event) {
-  event.preventDefault();
-}
-
 /*
 questionObject {
 questionNumber: 1, 
@@ -300,6 +296,30 @@ function loadQuiz() {
   submitThree.textContent = "Submit your answers!";
   quiz.appendChild(submitThree);
 
+  function captureQuizData(event) {
+    event.preventDefault();
+    let answerScore = 0;
+
+    const inputs = document.getElementsByTagName("input");
+    const inputsArray = Array.from(inputs);
+    const totalQuestions = inputsArray.filter(
+      (input) => input.getAttribute("data-correct") === "true"
+    ).length;
+
+    inputsArray.forEach((input) => {
+      if (input.checked && input.getAttribute("data-correct") === "true") {
+        answerScore++;
+      }
+    });
+
+    window.sessionStorage.setItem("answerScore", answerScore);
+
+    const percentage = (answerScore / totalQuestions) * 100;
+    const percentageRounded = Math.round(percentage); // Rounds to the nearest integer
+    window.sessionStorage.setItem("percentage", percentageRounded);
+
+    window.sessionStorage.setItem("totalQuestions", totalQuestions);
+  }
   submitThree.addEventListener("click", captureQuizData);
 }
 
