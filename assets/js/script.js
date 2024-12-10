@@ -319,9 +319,25 @@ function loadQuiz() {
     window.sessionStorage.setItem("percentage", percentageRounded);
 
     window.sessionStorage.setItem("totalQuestions", totalQuestions);
+    window.location.href = "step-four.html";
   }
   submitThree.addEventListener("click", captureQuizData);
 }
+
+function loadResults() {
+  const score = window.sessionStorage.getItem("answerScore");
+  const totalQuestions = window.sessionStorage.getItem("totalQuestions");
+  const percentage = window.sessionStorage.getItem("percentage");
+
+  const scorePara = document.getElementById("scorePara");
+  scorePara.innerHTML = `You scored: <b> ${score}</b> out of <b> ${totalQuestions}</b> possible right answer(s).`;
+
+  const percentagePara = document.getElementById("percentagePara");
+  percentagePara.innerHTML = `Your percentage was: <b>${percentage}%</b>`;
+}
+
+/*<p class="score"></p>
+            <p class="percentage"></p>*/
 
 //Calls the function which will populate the form on step-two
 document.addEventListener("DOMContentLoaded", function () {
@@ -338,6 +354,11 @@ document.addEventListener("DOMContentLoaded", function () {
     //line for loading quiz
 
     console.log("Function called step-three");
+  }
+
+  if (window.location.pathname === "/step-four.html") {
+    loadData();
+    loadResults();
   }
 });
 

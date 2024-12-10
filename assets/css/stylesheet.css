@@ -384,6 +384,25 @@ input[type="checkbox"] {
 #submit-three {
   margin-bottom: 1rem;
 }
+
+/*Score Page*/
+
+#scorePara,
+#percentagePara {
+  font-size: 1.5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem
+}
+
+#scorePara {
+  background-color: var(--accent);
+}
+
+#percentagePara {
+  background-color: var(--light-accent);
+}
+
 /*Footer*/
 
 footer {
