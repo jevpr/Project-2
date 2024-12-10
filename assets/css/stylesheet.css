@@ -332,6 +332,58 @@ input.answerInput {
   border: solid var(--green) 0.25rem;
 }
 
+/*Quiz Itself*/
+
+#quiz {
+  display: flex;
+  flex-direction: column;
+}
+
+fieldset {
+  margin: 1rem 0;
+  border-radius: 1rem;
+}
+
+fieldset > h2 {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  background-color: var(--accent);
+}
+
+fieldset > div {
+  font-size: 1.5rem;
+  padding: 0.25rem 1rem;
+  background-color: var();
+}
+
+fieldset > div:hover {
+  background-color: var(--light-accent);
+}
+
+fieldset > div > input {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+fieldset > div > label {
+  margin: 1rem;
+}
+
+p.italic {
+  font-size: large;
+  font-style: italic;
+  padding: 0.5rem 1rem;
+  background-color: var(--light-accent);
+}
+
+input[type="checkbox"] {
+  accent-color: var(--accent);
+  /* Green color */
+}
+
+#submit-three {
+  margin-bottom: 1rem;
+}
 /*Footer*/
 
 footer {

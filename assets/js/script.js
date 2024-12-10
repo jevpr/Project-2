@@ -134,7 +134,7 @@ function loadEmptyQuestions() {
 
       const wrongLabel = document.createElement("label");
       wrongLabel.innerHTML = "Wrong";
-      wrongLabel.for = `Q:${parentId}_A:${answerCount}_RightRadio`;
+      wrongLabel.for = `Q:${parentId}_A:${answerCount}_WrongRadio`;
       wrongLabel.classList.add("wrongLabelClass");
 
       const rightWrongContainer = document.createElement("div");
@@ -187,7 +187,6 @@ function loadEmptyQuestions() {
   //Controls the actions for the submit button on the 2nd page
   submitButton.addEventListener("click", function (event) {
     event.preventDefault();
-
     //First, accesses all question containers:
     const questions = questionContainer.querySelectorAll(".questionBox");
     const questionArray = [];
@@ -232,7 +231,14 @@ function loadEmptyQuestions() {
       questionArray.push(questionObject);
     });
     console.log(questionArray);
+    window.sessionStorage.setItem("questions", JSON.stringify(questionArray));
+
+    window.location.href = "step-three.html";
   });
+}
+
+function captureQuizData(event) {
+  event.preventDefault();
 }
 
 /*
@@ -241,14 +247,77 @@ questionNumber: 1,
 answers: [[answer1, right], [answer2, wrong], [answer3, wrong]],
 }*/
 
-//Calls the function which will populate the form on step-two
+function loadQuiz() {
+  const questionString = window.sessionStorage.getItem("questions");
+  const quizArray = JSON.parse(questionString);
+  console.log(quizArray);
+  const quiz = document.getElementById("quiz");
 
+  quizArray.forEach((question) => {
+    const fieldset = document.createElement("fieldset");
+    const questionHeader = document.createElement("h2");
+    questionHeader.innerHTML =
+      "Question " + question.questionNumber + ". " + question.questionText;
+    fieldset.appendChild(questionHeader);
+
+    const hasMultipleCorrect =
+      question.answers.filter((answer) => answer[2].includes("Right")).length >
+      1;
+    if (hasMultipleCorrect) {
+      const note = document.createElement("p");
+      note.innerHTML = "This question has multiple right answers";
+      note.classList.add("italic");
+      fieldset.appendChild(note);
+    }
+
+    question.answers.forEach((answer) => {
+      const div = document.createElement("div");
+      const input = document.createElement("input");
+      const label = document.createElement("label");
+
+      const isCheckbox = hasMultipleCorrect;
+      const inputType = isCheckbox ? "checkbox" : "radio";
+
+      input.type = inputType;
+      input.name = `Q${question.questionNumber}`;
+      input.id = `Q${question.questionNumber}A${answer[0].split(" ")[2]}`;
+      if (answer[2].includes("Right"))
+        input.setAttribute("data-correct", "true");
+
+      label.setAttribute("for", input.id);
+      label.textContent = answer[1];
+
+      div.appendChild(input);
+      div.appendChild(label);
+      fieldset.appendChild(div);
+    });
+
+    quiz.appendChild(fieldset);
+  });
+
+  const submitThree = document.createElement("button");
+  submitThree.id = "submit-three";
+  submitThree.textContent = "Submit your answers!";
+  quiz.appendChild(submitThree);
+
+  submitThree.addEventListener("click", captureQuizData);
+}
+
+//Calls the function which will populate the form on step-two
 document.addEventListener("DOMContentLoaded", function () {
-  loadData();
   if (window.location.pathname === "/step-two.html") {
+    loadData();
     loadEmptyQuestions();
 
     console.log("Function called step-two");
+  }
+
+  if (window.location.pathname === "/step-three.html") {
+    loadData();
+    loadQuiz();
+    //line for loading quiz
+
+    console.log("Function called step-three");
   }
 });
 
