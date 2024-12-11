@@ -232,6 +232,10 @@ p.about {
   border: solid var(--green) 2px;
 }
 
+span.underline {
+  text-decoration: underline;
+}
+
 /*Quiz Builder*/
 
 #questionContainer {
@@ -392,7 +396,7 @@ input[type="checkbox"] {
   font-size: 1.5rem;
   padding: 1rem;
   border-radius: 1rem;
-  margin-bottom: 1rem
+  margin-bottom: 1rem;
 }
 
 #scorePara {
@@ -402,6 +406,64 @@ input[type="checkbox"] {
 #percentagePara {
   background-color: var(--light-accent);
 }
+
+.selectionDetails {
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.outline {
+  border: solid, var(--black);
+  border-radius: 1rem;
+  padding: 0 0.5rem;
+}
+
+.lightGreen {
+  background-color: var(--light-green);
+  border-radius: 1rem;
+  padding: 0 0.5rem;
+}
+
+.lightOrange {
+  background-color: var(--light-accent);
+  border-radius: 1rem;
+  padding: 0 0.5rem;
+}
+
+.rightAnswer {
+  background-color: var(--light-green);
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  margin: 0.25rem 0;
+}
+
+.wrongAnswer {
+  background-color: var(--light-accent);
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.userSelected {
+  border: solid var(--black);
+}
+
+div.newQuiz {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+
+a.newQuiz {
+  background-color: var(--green);
+  color: var(--black);
+  padding: 1rem;
+  width: 50%;
+  text-align: center;
+  font-size: x-large;
+  border-radius: 1rem;
+}
+
 
 /*Footer*/
 

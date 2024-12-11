@@ -110,31 +110,31 @@ function loadEmptyQuestions() {
       answerInput.type = "text";
       answerInput.placeholder = `Enter Answer ${answerCount}...`;
       answerInput.classList.add("answerInput");
-      answerInput.id = `Q: ${parentId} A: ${answerCount}`;
+      answerInput.id = `Q${parentId}A${answerCount}`;
 
       //Answer radio right-wrong toggles
       const rightRadio = document.createElement("input");
       rightRadio.type = "radio";
-      rightRadio.id = `Q:${parentId}_A:${answerCount}_RightRadio`;
-      rightRadio.name = `Q:${parentId}_A:${answerCount}_Right/Wrong`;
+      rightRadio.id = `Q${parentId}A${answerCount}_RightRadio`;
+      rightRadio.name = `Q${parentId}A${answerCount}_Right/Wrong`;
       rightRadio.checked = true;
       rightRadio.classList.add("rightRadioClass");
 
       const wrongRadio = document.createElement("input");
       wrongRadio.type = "radio";
-      wrongRadio.id = `Q:${parentId}_A:${answerCount}_WrongRadio`;
-      wrongRadio.name = `Q:${parentId}_A:${answerCount}_Right/Wrong`;
+      wrongRadio.id = `Q${parentId}A${answerCount}_WrongRadio`;
+      wrongRadio.name = `Q${parentId}A${answerCount}_Right/Wrong`;
       wrongRadio.classList.add("wrongRadioClass");
 
       //Right-wrong radio labels
       const rightLabel = document.createElement("label");
       rightLabel.innerHTML = "Right";
-      rightLabel.for = `Q:${parentId}_A:${answerCount}_RightRadio`;
+      rightLabel.for = `Q${parentId}A${answerCount}_RightRadio`;
       rightLabel.classList.add("rightLabelClass");
 
       const wrongLabel = document.createElement("label");
       wrongLabel.innerHTML = "Wrong";
-      wrongLabel.for = `Q:${parentId}_A:${answerCount}_WrongRadio`;
+      wrongLabel.for = `Q${parentId}A${answerCount}_WrongRadio`;
       wrongLabel.classList.add("wrongLabelClass");
 
       const rightWrongContainer = document.createElement("div");
@@ -276,7 +276,7 @@ function loadQuiz() {
 
       input.type = inputType;
       input.name = `Q${question.questionNumber}`;
-      input.id = `Q${question.questionNumber}A${answer[0].split(" ")[2]}`;
+      input.id = `Q${question.questionNumber}A${answer[0][3]}`;
       if (answer[2].includes("Right"))
         input.setAttribute("data-correct", "true");
 
@@ -297,43 +297,108 @@ function loadQuiz() {
   quiz.appendChild(submitThree);
 
   function captureQuizData(event) {
+    //This function needs to capture the users inputs and save them as a property of question objects
     event.preventDefault();
-    let answerScore = 0;
 
-    const inputs = document.getElementsByTagName("input");
-    const inputsArray = Array.from(inputs);
-    const totalQuestions = inputsArray.filter(
-      (input) => input.getAttribute("data-correct") === "true"
-    ).length;
+    const fieldsets = document.querySelectorAll("#quiz fieldset");
+    let quizData = JSON.parse(sessionStorage.getItem("questions"));
 
-    inputsArray.forEach((input) => {
-      if (input.checked && input.getAttribute("data-correct") === "true") {
-        answerScore++;
-      }
+    let totalCorrect = 0;
+    let totalPossible = 0;
+
+    fieldsets.forEach((fieldset, questionIndex) => {
+      const questionInputs = fieldset.querySelectorAll("input");
+      const userAnswers = [];
+
+      questionInputs.forEach((input) => {
+        if (input.checked) {
+          userAnswers.push(input.id);
+        }
+
+        if (input.dataset.correct === "true") {
+          totalPossible++;
+        }
+      });
+
+      quizData[questionIndex].userAnswers = userAnswers;
+
+      const correctAnswers = Array.from(questionInputs)
+        .filter((input) => input.dataset.correct === "true")
+        .map((input) => input.id);
+      totalCorrect += userAnswers.filter((answer) =>
+        correctAnswers.includes(answer)
+      ).length;
     });
 
-    window.sessionStorage.setItem("answerScore", answerScore);
+    sessionStorage.setItem("questions", JSON.stringify(quizData));
 
-    const percentage = (answerScore / totalQuestions) * 100;
-    const percentageRounded = Math.round(percentage); // Rounds to the nearest integer
-    window.sessionStorage.setItem("percentage", percentageRounded);
-
-    window.sessionStorage.setItem("totalQuestions", totalQuestions);
+    const percentageScore = Math.round((totalCorrect / totalPossible) * 100);
+    sessionStorage.setItem("percentage", percentageScore);
+    sessionStorage.setItem("totalCorrect", totalCorrect);
+    sessionStorage.setItem("totalPossible", totalPossible);
     window.location.href = "step-four.html";
   }
   submitThree.addEventListener("click", captureQuizData);
 }
 
 function loadResults() {
-  const score = window.sessionStorage.getItem("answerScore");
-  const totalQuestions = window.sessionStorage.getItem("totalQuestions");
-  const percentage = window.sessionStorage.getItem("percentage");
+  const title = document.getElementById("updatedTitle");
+  const quizTitle = sessionStorage.getItem("quizTitle");
+  title.innerHTML = `Here are your results for "${quizTitle}":`;
 
   const scorePara = document.getElementById("scorePara");
-  scorePara.innerHTML = `You scored: <b> ${score}</b> out of <b> ${totalQuestions}</b> possible right answer(s).`;
+  const score = sessionStorage.getItem("totalCorrect");
+  const totalPossible = sessionStorage.getItem("totalPossible");
+  scorePara.innerHTML = `You scored a total of <span class="underline"><b>${score}</b> out of <b>${totalPossible}</b></span> possible right answers.`;
 
   const percentagePara = document.getElementById("percentagePara");
-  percentagePara.innerHTML = `Your percentage was: <b>${percentage}%</b>`;
+  const percentage = sessionStorage.getItem("percentage");
+  percentagePara.innerHTML = `Your percentage was: <b>${percentage}%</b>.`;
+}
+//This function needs to load the objects with their guesses,
+//calculate the final score, + percentage,
+// then display the questions as they were answered
+
+function loadScoreBreakdown() {
+  const scoreBreakdown = document.getElementById("scoreBreakdown");
+  const questions = JSON.parse(sessionStorage.getItem("questions"));
+
+  for (let question of questions) {
+    const questionDiv = document.createElement("div");
+    questionDiv.classList.add("questionBreakdown");
+
+    const questionTitle = document.createElement("h2");
+    questionTitle.innerHTML =
+      question.questionNumber + ". " + question.questionText;
+    questionDiv.appendChild(questionTitle);
+
+    const questionAnswers = question.answers;
+    const userAnswers = question.userAnswers;
+
+    for (let answer of questionAnswers) {
+      const answerPara = document.createElement("p");
+      answerPara.id = answer[2];
+      answerPara.innerHTML = answer[1];
+
+      if (answerPara.id.includes("Wrong")) {
+        answerPara.classList.add("wrongAnswer");
+      }
+
+      if (answerPara.id.includes("Right")) {
+        answerPara.classList.add("rightAnswer");
+      }
+
+      for (let answer of userAnswers) {
+        if (answerPara.id.includes(answer)) {
+          answerPara.classList.add("userSelected");
+        }
+      }
+
+      questionDiv.appendChild(answerPara);
+    }
+
+    scoreBreakdown.appendChild(questionDiv);
+  }
 }
 
 /*<p class="score"></p>
@@ -357,8 +422,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   if (window.location.pathname === "/step-four.html") {
-    loadData();
     loadResults();
+    loadScoreBreakdown();
   }
 });
 

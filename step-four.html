@@ -20,14 +20,29 @@
     </header>
 
     <main>
-      <div class="quizBuilder">
+      <div class="quizBuilder final">
         <h1 id="updatedTitle"></h1>
-        <p class="about" id="updatedAbout"></p>
         <div class="spacerForm"></div>
         <div class="results">
-            <p id="scorePara" class="score"></p>
-            <p id="percentagePara" class="percentage"></p>
+          <p id="scorePara" class="score">This</p>
+          <p id="percentagePara" class="percentage">This</p>
         </div>
+        <div class="spacerForm"></div>
+        <h1>Here's a breakdown of your scores...</h1>
+        <p class="selectionDetails">
+          The answers you've selected will be shown with
+          <span class="outline"> an outline</span>
+        </p>
+        <p class="selectionDetails">
+          Correct answers are shown in
+          <span class="lightGreen">light green</span>
+        </p>
+        <p class="selectionDetails">
+          Incorrect answers are shown in
+          <span class="lightOrange">light orange</span>.
+        </p>
+        <div id="scoreBreakdown"></div>
+        <div class="newQuiz"><a href="step-one.html" class="newQuiz">Create a new quiz!</a></div>
       </div>
     </main>
 
