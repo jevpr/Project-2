@@ -31,7 +31,7 @@ function loadData() {
   } else {
     updatedTitle.innerHTML = "Oops! Something has gone wrong.";
     updatedAbout.innerHTML =
-      'Please reload the homepage <a href="index.html">here</a>.';
+      'Please reload the homepage <span class="underline"><a href="index.html">here</a></span>.';
     updatedAbout.style.display = "block";
     const hideSubmit = document.getElementById(submitTwo);
     hideSubmit.style.display = "none";
@@ -202,13 +202,13 @@ function loadEmptyQuestions() {
       }
     }
 
-    //First, accesses all question containers:
+    //accesses all question containers:
     const questions = questionContainer.querySelectorAll(".questionBox");
 
     for (let question of questions) {
       const answerInputs = question.querySelectorAll(".answerInput");
 
-      // Check if there is at least one non-empty answer
+      // Checks if there is at least one non-empty answer
       const hasValidAnswer = Array.from(answerInputs).some((input) =>
         input.value.trim()
       );
