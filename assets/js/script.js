@@ -74,6 +74,7 @@ function loadEmptyQuestions() {
     questionInput.type = "text";
     questionInput.placeholder = `Enter Question ${i}`;
     questionInput.classList.add("questionInput");
+    questionInput.setAttribute("required", "");
     questionInput.id = `Question${i}`;
 
     //container for 'add / delete answer' buttons
@@ -111,6 +112,7 @@ function loadEmptyQuestions() {
       answerInput.placeholder = `Enter Answer ${answerCount}...`;
       answerInput.classList.add("answerInput");
       answerInput.id = `Q${parentId}A${answerCount}`;
+      answerInput.setAttribute("required", "");
 
       //Answer radio right-wrong toggles
       const rightRadio = document.createElement("input");
@@ -187,8 +189,36 @@ function loadEmptyQuestions() {
   //Controls the actions for the submit button on the 2nd page
   submitButton.addEventListener("click", function (event) {
     event.preventDefault();
+
+    const allInputs = questionContainer.querySelectorAll(
+      ".questionInput, .answerInput"
+    );
+
+    // Check if any input is empty
+    for (const input of allInputs) {
+      if (!input.value.trim()) {
+        alert("Please fill in all question and answer boxes!");
+        return; // Stop further execution if a field is empty
+      }
+    }
+
     //First, accesses all question containers:
     const questions = questionContainer.querySelectorAll(".questionBox");
+
+    for (let question of questions) {
+      const answerInputs = question.querySelectorAll(".answerInput");
+
+      // Check if there is at least one non-empty answer
+      const hasValidAnswer = Array.from(answerInputs).some((input) =>
+        input.value.trim()
+      );
+
+      if (!hasValidAnswer) {
+        alert("Each question must have at least one answer");
+        return; // Stop further execution if a question has no valid answer
+      }
+    }
+
     const questionArray = [];
 
     // Looping through each question container
