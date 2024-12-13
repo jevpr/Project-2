@@ -437,6 +437,7 @@ function loadScoreBreakdown() {
 //Calls the function which will populate the form on step-two
 document.addEventListener("DOMContentLoaded", function () {
   if (window.location.pathname === "/step-two.html") {
+    console.log("step-two");
     loadData();
     loadEmptyQuestions();
 
