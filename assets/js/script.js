@@ -11,7 +11,6 @@ function saveDataAndRedirect(event) {
   window.sessionStorage.setItem("about", about);
   window.sessionStorage.setItem("questionAmount", questionAmount);
   window.location.href = "step-two.html";
-  console.log("data saved");
 }
 
 //Loads your inputs and inserts into HTML
