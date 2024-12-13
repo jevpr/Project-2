@@ -436,7 +436,9 @@ function loadScoreBreakdown() {
 
 //Calls the function which will populate the form on step-two
 document.addEventListener("DOMContentLoaded", function () {
-  if (window.location.pathname === "/step-two.html") {
+  const path = window.location.pathname;
+
+  if (path.includes("step-two.html")) {
     console.log("step-two");
     loadData();
     loadEmptyQuestions();
@@ -444,7 +446,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Function called step-two");
   }
 
-  if (window.location.pathname === "/step-three.html") {
+  if (path.includes("step-three.html")) {
     loadData();
     loadQuiz();
     //line for loading quiz
@@ -452,7 +454,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Function called step-three");
   }
 
-  if (window.location.pathname === "/step-four.html") {
+  if (path.includes("step-four.html")) {
     loadResults();
     loadScoreBreakdown();
   }
