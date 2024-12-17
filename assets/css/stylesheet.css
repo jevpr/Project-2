@@ -493,11 +493,10 @@ a {
 /*Media Queries*/
 
 /* Styles for screens 400px or larger (e.g., large phones, landscape phones) */
-@media screen and (min-width: 315px) and (max-width: 374px) {
+@media screen and (min-width: 315px) and (max-width: 360px) {
   main {
     display: block;
     overflow: scroll;
-    background-color: red;
   }
 
   .mainDiv  > p {
@@ -511,10 +510,6 @@ a {
 
   div.form {
     height: unset
-  }
-
-  a.newQuiz {
-    width: 100%;
   }
 }
 
