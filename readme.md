@@ -177,6 +177,10 @@ The results breakdown also emphasizes positive marking. It will show you how man
 
 <b>Clear Data button</b>
 
+<b> personalised message for each question</b>
+
+<b>Accumulate answers o give a predetermined result - like a personality test </b>
+
 
 
 ## Testing
