@@ -497,6 +497,7 @@ a {
   main {
     display: block;
     overflow: scroll;
+    background-color: red;
   }
 
   .mainDiv  > p {
