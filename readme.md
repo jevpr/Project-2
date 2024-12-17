@@ -19,7 +19,9 @@ Website Url: [https://jevpr.github.io/Test-Yourself/](https://jevpr.github.io/Te
 - [Header and Footer](#header-and-footer)
 - [Landing Page](#landing-page)
 - [About](#about)
-- [Under Construction](#under-construction)
+- [Redirection Page](#redirection-page)
+- [Quiz Builder](#quiz-builder)
+- [Results Page](#results-page)
 - [Features left to implement](#features-left-to-implement)
 
 ### 4. [Testing](#testing)
@@ -116,13 +118,28 @@ I included an about page so that users could access an explanation of the quiz b
 
 ![About Page responsivity test - showing responsive designs for mobile, tablet, laptop and pc](<assets/images/readmeImages/aboutResponsive.png>)
 
+***
 
 
-### Under Construction
+### Redirection Page
 
-This page will not be seen unless the user manages to load Step Two without session data. Sometimes this can happen when 
+This page will not be seen unless the user manages to load Step Two or Three without session data. Sometimes this can happen when the URL is opened in a new tab: 
 
-![under construction page](<assets/images/readmeimages/Under Construction.png>)
+![Redirection page for when the user loads Page 2 without session Data. The text reads: Oops! Something went wrong. Please reload the homepage here (with a link to the homepage)](<assets/images/readmeImages/Oops.png>)
+
+***
+
+### Quiz builder 
+
+
+***
+
+### Results Page
+
+
+***
+
+
 
 ## Features Left to Implement
 
