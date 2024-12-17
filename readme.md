@@ -18,8 +18,7 @@ Website Url: [https://jevpr.github.io/Test-Yourself/](https://jevpr.github.io/Te
 
 - [Header and Footer](#header-and-footer)
 - [Landing Page](#landing-page)
-- [Profiles](#profiles)
-- [About and Contact](about-and-contact)
+- [About](#about)
 - [Under Construction](#under-construction)
 - [Features left to implement](#features-left-to-implement)
 
@@ -107,33 +106,21 @@ The Landing page uses minimal text and a simple layout to make the purpose of th
 
 
 
-![Landing Page responsive](<assets/images/readmeimages/Landing Page.png>)
+![Landing Page responsivity test - showing responsive designs for mobile, tablet, laptop and pc](<assets/images/readmeImages/Responsivity Test.png>)
 
 ***
 
-### Profiles
+### About
 
-This was the most challenging page to make resopnsive, as it features a timeline detailing the history of each profilee.
+I included an about page so that users could access an explanation of the quiz builder. This was done to promote ease of use, and to manage expectations. For example, at the moment, 'Test Yourself' is just a multiple choice quiz. This is outlined in the about section. 
 
-For each type of screen: mobile, tablet, laptop and desktop, the timeline morphs to take on a different layout. This was done using flexbox.
+![About Page responsivity test - showing responsive designs for mobile, tablet, laptop and pc](<assets/images/readmeImages/aboutResponsive.png>)
 
-![Profile pages responsive](assets/images/readmeimages/Profile.png)
-![Timeline pages responsive](assets/images/readmeimages/Timeline.png)
 
-### About and Contact
-
-The About and Contact pages both take on a similar masonry layout for larger screen sizes, or a columnar layout for mobile.
-
-The 'About' page gives users information about the website's creation. Calls to Action are present throughout to keep the page engaging, and text blocks are kept short and spaced. There are internal links to direct users to other parts of the site.
-
-The 'Contact' page features a submission form, and internal links to direct users to other parts of the site. Within the form, users can get in contact with the site developers.
-
-![About page responsive](assets/images/readmeimages/About.png)
-![Contact page responsive](assets/images/readmeimages/Contact.png)
 
 ### Under Construction
 
-There is an under construction layout for profiles that are still being developed.
+This page will not be seen unless the user manages to load Step Two without session data. Sometimes this can happen when 
 
 ![under construction page](<assets/images/readmeimages/Under Construction.png>)
 
