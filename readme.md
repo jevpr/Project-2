@@ -14,7 +14,7 @@ Website Url: [https://jevpr.github.io/Test-Yourself/](https://jevpr.github.io/Te
 - [Colour Palette](#colour-palette)
 - [Balsamiq Wireframes](#balsamiq-wireframes)
 
-### 3. [Features](#features)
+### 3. [Features and Responsivity](#features-and-responsivity)
 
 - [Header and Footer](#header-and-footer)
 - [Landing Page](#landing-page)
@@ -22,7 +22,7 @@ Website Url: [https://jevpr.github.io/Test-Yourself/](https://jevpr.github.io/Te
 - [Redirection Page](#redirection-page)
 - [Quiz Builder](#quiz-builder)
 - [Results Page](#results-page)
-- [Features left to implement](#features-left-to-implement)
+- [Updates for the next iteration](#updates-for-the-next-iteration)
 
 ### 4. [Testing](#testing)
 
@@ -86,7 +86,7 @@ The following picture shows some of my initial mobile-first website design:
 <br>
 <br>
 
-## Features
+## Features and Responsivity
 
 ### Header and Footer
 
@@ -125,29 +125,59 @@ I included an about page so that users could access an explanation of the quiz b
 
 This page will not be seen unless the user manages to load Step Two or Three without session data. Sometimes this can happen when the URL is opened in a new tab: 
 
-![Redirection page for when the user loads Page 2 without session Data. The text reads: Oops! Something went wrong. Please reload the homepage here (with a link to the homepage)](<assets/images/readmeImages/Oops.png>)
+![Responsivity test for redirection page, shown when the user loads Page 2 without session Data. The text reads: Oops! Something went wrong. Please reload the homepage here (with a link to the homepage)](<assets/images/readmeImages/Oops.png>)
 
 ***
 
 ### Quiz builder 
 
+The quiz builder is generated using the initial user inputs for Step-One. It captures the title and about for your quiz, and creates the desired number of question inputs. 
+
+For each question, the user can add or remove answers. Each question must have at least one answer, and all answer / question inputs must contain text (not including spaces). 
+
+For each answer box, the user has the option to select right/wrong. 
+
+![Quiz building page responsivity test, with sections for question input and buttons adding/removing answers)](<assets/images/readmeImages/quizBuilderResponsive.png>)
 
 ***
 
 ### Results Page
 
+The quiz results page offers a break down of the user's scores - including a mark and a percentage. 
+
+The mark is calculated using the following method: 
+
+> number of correct answers selected / total possible correct answers.
+
+This is a positive marking method, which is a way of evaluating student work that focuses on what students can do correctly, rather than what they get wrong. 
+
+in other words, quiz-takers are rewarded for what they get right, rather than penalised for what they get wrong. 
+
+![Results page responsivity test, with mark, percentage and mark breakdown.)](<assets/images/readmeImages/resultsFeedback.png>).
+
+The results breakdown also emphasizes positive marking. It will show you how many right answers there were for each question, and highlight the ones you selected. 
+
+![An image of the score breakdown for the quiz taker - for each question, correct answers are highlighted in green, incorrect ones in orange, and the user's selection with a black outline](<assets/images/readmeImages/scoreBreakdown.png>)
+
+
 
 ***
 
 
 
-## Features Left to Implement
+## Updates for the next iteration
 
-<b>Nav Bar edits:</b> In future updates, I will play with having the logo in the top right hand corner - so it's more accesible for mobile users.
+<b>Different Marking Styles</b> In future updates, I would like to give the user the option to choose different marking styles - 
 
-<b>Form edits:</b> I would like the form to also take story submissions from users, so they can share their experiences. These submissions would then be posted on a Forum page on the website.
+<b> AI Integration</b></b> 
 
-<b>Under construction edits:</b> I would like to create a random fact generator for the Under Construction page. This would guide traffic back into the website with fun facts that linked to completed profiles.
+<b>Streamlined userface with more options</b> 
+
+<b>Small / Large text toggle</b>
+
+<b>Clear Data button</b>
+
+
 
 ## Testing
 
@@ -155,9 +185,7 @@ The project was tested by several users, to ensure all features work as intended
 
 ### Responsive
 
-The website is fully responsive for phones, tablets, laptops and desktops. Here, I have tested out the site's responsivity via <em>Am I responsive?</em> website:
-
-![](assets/images/readmeimages/AmIResponsive.png)
+The website is fully responsive for phones, tablets, laptops and desktops. In the [features section](#features-and-responsivity), you can see screenshots of all pages for difference screen sizes.
 
 For tests, I used [Am I Responsive?](https://ui.dev/amiresponsive?url=https://jevpr.github.io/Project-1/).
 
