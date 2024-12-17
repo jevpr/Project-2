@@ -493,9 +493,27 @@ a {
 /*Media Queries*/
 
 /* Styles for screens 400px or larger (e.g., large phones, landscape phones) */
-@media screen and (min-width: 315px) {
-  body {
-    /*background-color: red;*/
+@media screen and (min-width: 315px) and (max-width: 374px) {
+  main {
+    display: block;
+    overflow: scroll;
+  }
+
+  .mainDiv  > p {
+    text-align: center;
+  }
+
+  a.indexPage {
+    font-size: medium;
+    width: unset;
+  }
+
+  div.form {
+    height: unset
+  }
+
+  a.newQuiz {
+    width: 100%;
   }
 }
 
