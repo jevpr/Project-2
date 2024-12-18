@@ -510,11 +510,16 @@ a {
   }
 }
 
-/* Styles for screens 600px or larger (e.g., tablets) */
-@media screen and (min-width: 361px) {
+/* Styles for landscape phones */
+
+@media screen and (min-height: 300px) and (max-height: 430px) {
+  * {
+    overflow: scroll;
+  }
+
   main {
-    display: flex;
-    flex-direction: column;
+    height: unset;
+    margin-bottom: 5rem;
   }
 }
 
