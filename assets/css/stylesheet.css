@@ -276,7 +276,7 @@ input.questionInput {
   border-radius: 1rem;
 }
 
-/*Answer Box, inputs, right wrong labels / radios*/
+/*Answer Box, inputs, right wrong labels and radios, add and delete answer buttons*/
 .answerBox {
   display: flex;
   flex-wrap: wrap;
@@ -385,7 +385,6 @@ p.italic {
 
 input[type="checkbox"] {
   accent-color: var(--accent);
-  /* Green color */
 }
 
 #submit-three {

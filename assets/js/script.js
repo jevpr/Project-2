@@ -1,7 +1,8 @@
-//General Variables
+//This is an initial JS test.
 console.log("Hello World!");
+
 const questionContainer = document.getElementById("questionContainer");
-//Stores the input from the form and redirects
+//Stores the input from the form and redirects. This function is called within the HTML in step-one.
 function saveDataAndRedirect(event) {
   event.preventDefault();
   const quizTitle = document.getElementById("quizTitle").value;
@@ -13,7 +14,8 @@ function saveDataAndRedirect(event) {
   window.location.href = "step-two.html";
 }
 
-//Loads your inputs and inserts into HTML
+/*Loads your inputs and inserts into HTML. This function is called for step-two and step-three, to load the quiz title and about. It also handles
+situations where these pages are loaded without session data for Quiz Title. */
 function loadData() {
   const updatedTitle = document.getElementById("updatedTitle");
   const updatedAbout = document.getElementById("updatedAbout");
@@ -40,23 +42,13 @@ function loadData() {
 }
 
 /*Retrieves the Data from Session Storage and uses it to create
-the quiz builder*/
+the quiz builder. This function is used on step-two, to generate a quiz builder
+with the right number of question inputs.*/
 function loadEmptyQuestions() {
   //retrieves number of Questions from session storage
   const questionAmount = parseInt(
     window.sessionStorage.getItem("questionAmount")
   );
-
-  /*
-
-  // If the question amount is invalid or not set, we exit.
-  if (isNaN(questionAmount) || questionAmount <= 0) {
-    console.error("Invalid question amount");
-    return; 
-  }
-
-  // Clear any existing content before adding new questions (optional)
-  questionContainer.innerHTML = "";*/
 
   /* A for loop which cycles through questionAmount, 
   and creates a question input for each one*/
@@ -266,12 +258,7 @@ function loadEmptyQuestions() {
   });
 }
 
-/*
-questionObject {
-questionNumber: 1, 
-answers: [[answer1, right], [answer2, wrong], [answer3, wrong]],
-}*/
-
+/*This is used in step-three, to generate the quiz itself */
 function loadQuiz() {
   const questionString = window.sessionStorage.getItem("questions");
   const quizArray = JSON.parse(questionString);
@@ -370,6 +357,7 @@ function loadQuiz() {
   submitThree.addEventListener("click", captureQuizData);
 }
 
+/*This is used in step-four, to generate the overall feedback*/
 function loadResults() {
   const title = document.getElementById("updatedTitle");
   const quizTitle = sessionStorage.getItem("quizTitle");
@@ -384,10 +372,8 @@ function loadResults() {
   const percentage = sessionStorage.getItem("percentage");
   percentagePara.innerHTML = `Your percentage was: <b>${percentage}%</b>.`;
 }
-//This function needs to load the objects with their guesses,
-//calculate the final score, + percentage,
-// then display the questions as they were answered
 
+/*This is used in step-four, to generate the specific score breakdown*/
 function loadScoreBreakdown() {
   const scoreBreakdown = document.getElementById("scoreBreakdown");
   const questions = JSON.parse(sessionStorage.getItem("questions"));
@@ -430,10 +416,7 @@ function loadScoreBreakdown() {
   }
 }
 
-/*<p class="score"></p>
-            <p class="percentage"></p>*/
-
-//Calls the function which will populate the form on step-two
+//This final event listener calls all the appropriate functions for each page.
 document.addEventListener("DOMContentLoaded", function () {
   const path = window.location.pathname;
 
@@ -458,16 +441,3 @@ document.addEventListener("DOMContentLoaded", function () {
     loadScoreBreakdown();
   }
 });
-
-/*I think you will need to change the above so 
-that it specifies /step-two.html being loaded. 
-Work for tomorrow, begin working on the 'submit' 
-button. I think for the sake of this project, 
-we will have at least one answer that's correct. 
-
-If a user creates a question with no right answers, the 
-following alert will pop up: 
-'Answer [x] has no right answer. Please select a right 
-answer, or use 'None of the above' as your right 
-answer.
-*/
