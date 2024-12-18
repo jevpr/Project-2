@@ -27,6 +27,7 @@ Main Technologies Used: HTML, CSS, and Javascript
 - [Updates for the next iteration](#updates-for-the-next-iteration)
 
 ### 4. [Form Validation and Media Queries](#form-validation-and-media-queries)
+
 - [Form Validation](#form-validation)
 - [Media Queries](#media-queries)
 
@@ -235,29 +236,10 @@ User inputs are validated in a number of ways:
 
 The CSS for this project has been built to need minimal changes for difference screen sizes - that means, the same CSS works for most screen sizes, thanks to flexbox.
 
-However, one media query has been used to ensure that the site works on smaller screens:
+However, media queries were included to deal with:
 
-```
-@media screen and (min-width: 315px) and (max-width: 360px) {
-  main {
-    display: block;
-    overflow: scroll;
-  }
-
-  .mainDiv > p {
-    text-align: center;
-  }
-
-  a.indexPage {
-    font-size: medium;
-    width: unset;
-  }
-
-  div.form {
-    height: unset;
-  }
-}
-```
+1. Small screen sizes
+2. Landscape phones
 
 ## Testing
 
@@ -328,6 +310,7 @@ I demonstrated and documented the development process through GitHub's version c
 - The font (open sans) was imported from: [Google Fonts](https://fonts.google.com/specimen/Open+Sans).
 
 ### Attributions for Code
-All the code you see in the JS file was custom built by the creator. I used [W3 Schools](https://www.w3schools.com/) and [Chat GPT](https://chatgpt.com/) to initially research complex logic in <b>for loops</b>, <b>conditional statements</b>, and <b>event listeners</b>, and then created custom code to suit my project once I understood the core concepts. 
+
+All the code you see in the JS file was custom built by the creator. I used [W3 Schools](https://www.w3schools.com/) and [Chat GPT](https://chatgpt.com/) to initially research complex logic in <b>for loops</b>, <b>conditional statements</b>, and <b>event listeners</b>, and then created custom code to suit my project once I understood the core concepts.
 
 ### [Back to the top.](#test-yourself)
