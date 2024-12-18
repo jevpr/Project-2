@@ -511,7 +511,11 @@ a {
 }
 
 /* Styles for screens 600px or larger (e.g., tablets) */
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 361px) {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 /* Styles for screens 1024px or larger (e.g., desktops) */
