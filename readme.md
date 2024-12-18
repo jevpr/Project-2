@@ -167,37 +167,57 @@ The results breakdown also emphasizes positive marking. It will show you how man
 
 ## Updates for the next iteration
 
-<b>Different Marking Styles</b> In future updates, I would like to give the user the option to choose different marking styles - 
+1. <b>Different Marking Styles</b> 
 
-<b> AI Integration</b></b> 
+In future updates, I would like to give the user the option to choose different marking styles, including: 
+- Negative Marking / Penalty Marking
+- Partial Credit Marking
+- Holistic Marking (for qualitative answers)
+- Norm-Referenced Marking (students graded relative to their peers)
+- Descriptive Feedback (written / verbal feedback on strengths and areas for improvement)
+- Pass/Fail Marking
+- Weighted Marking (questions carry different weights in the final score)
+- Accumulate answers to give a predetermined result - like a personality test
+***
+2. <b> A dynamic software</b></b> 
 
-<b>Streamlined userface with more options</b> 
+A software like this could benefit from the integration of AI and dynamic features. That might mean things like: 
+- Dynamic Question Selection (If a student answers a question correctly, the system presents a harder question)
+- AI is available at the quiz building stage, to generate answers and save educators timeline
+***
+3. <b>Streamlined userface with more options</b> 
 
-<b>Small / Large text toggle</b>
+This would mean the user was able to build a qider variety of quizzes, with options for: 
+- Qualitative answers
+- Code and equational inputs (for maths and IT quizzes)
+- A backend, with the ability to save quizzes and share them (for both quiz makers and quiz takers)
+- An embed option, with the ability to embed a small version of a quiz into a website
+***
+4. I would also like to include:
 
-<b>Clear Data button</b>
+- <b>A 'small / Large' text toggle</b> (to encourage accessibility, this would be placed in the top left hand corner of the header)
+- <b>A 'clear data' button</b> (To save time when creating quizzes)
+- <b> A personalised message for each question</b> (To allow individual feedback for each question / an explanation of the question)
 
-<b> personalised message for each question</b>
-
-<b>Accumulate answers o give a predetermined result - like a personality test </b>
 
 
 
 ## Testing
 
-The project was tested by several users, to ensure all features work as intended. The site has proven easy to use, and is straightforward for those wanting to learn more about the history of women in tech.
+The project was tested by several users, to ensure all features work as intended. The site has proven easy to use, and is straightforward for those wanting to create simple quizzes. 
+
 
 ### Responsive
 
 The website is fully responsive for phones, tablets, laptops and desktops. In the [features section](#features-and-responsivity), you can see screenshots of all pages for difference screen sizes.
 
-For tests, I used [Am I Responsive?](https://ui.dev/amiresponsive?url=https://jevpr.github.io/Project-1/).
+For tests, I used [Am I Responsive?](https://ui.dev/amiresponsive?url=https://jevpr.github.io/Test-Yourself/).
 
 ### Browser Friendly
 
 The site has been tested for the following browsers: Chrome, Firefox, Safari, Edge, Vivaldi, Brave, and Tor Browser.
 
-For tests, I used [Browserling.com](https://www.browserling.com/browse/win10/safari5.1.5/https://jevpr.github.io/Project-1/).
+For tests, I used [Browserling.com](https://www.browserling.com/browse/win10/safari5.1.5/https://jevpr.github.io/Test-Yourself/).
 
 ### Accessible
 
