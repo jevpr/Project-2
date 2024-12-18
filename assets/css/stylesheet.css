@@ -489,7 +489,7 @@ a {
 
 /*Media Queries*/
 
-/* Styles for screens 400px or larger (e.g., large phones, landscape phones) */
+/* Styles for small screens*/
 @media screen and (min-width: 315px) and (max-width: 360px) {
   main {
     display: block;
@@ -511,7 +511,6 @@ a {
 }
 
 /* Styles for landscape phones */
-
 @media screen and (min-height: 300px) and (max-height: 430px) {
   * {
     overflow: scroll;
