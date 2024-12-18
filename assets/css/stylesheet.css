@@ -361,7 +361,6 @@ fieldset > h2 {
 fieldset > div {
   font-size: 1.5rem;
   padding: 0.25rem 1rem;
-  background-color: var();
 }
 
 fieldset > div:hover {
@@ -418,7 +417,7 @@ input[type="checkbox"] {
 }
 
 .outline {
-  border: solid, var(--black);
+  border: solid var(--black);
   border-radius: 1rem;
   padding: 0 0.5rem;
 }
@@ -498,7 +497,7 @@ a {
     overflow: scroll;
   }
 
-  .mainDiv  > p {
+  .mainDiv > p {
     text-align: center;
   }
 
@@ -508,7 +507,7 @@ a {
   }
 
   div.form {
-    height: unset
+    height: unset;
   }
 }
 

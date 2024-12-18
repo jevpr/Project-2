@@ -221,9 +221,11 @@ For tests, I used [Browserling.com](https://www.browserling.com/browse/win10/saf
 
 ### Accessible
 
-I checked accessibility by running my site through the Lighthouse tool on Google Dev tools.
+I checked accessibility by running my site through the Lighthouse tool on Google Dev tools. Every page scored 100%. 
 
-![](assets/images/readmeimages/Lighthouse.png)
+![](assets/images/readmeImages/accessibilityLighthouse.png)
+
+
 
 ### Validator Testing
 
@@ -231,7 +233,7 @@ HTML
 No errors were returned when passing through the official [W3C Nu HTML Checker](https://validator.w3.org/nu/).
 
 CSS
-No errors were found when passing through the official validator - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator). The document validates as CSS level 3 + SVG.
+No errors were found when passing through the official validator - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/). The document validates as CSS level 3 + SVG.
 
 ### Unfixed Bugs
 
