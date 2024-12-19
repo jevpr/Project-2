@@ -36,6 +36,7 @@ Main Technologies Used: HTML, CSS, and Javascript
 - [Responsive](#responsive)
 - [Browser Friendly](#browser-friendly)
 - [Accessible](#accessible)
+- [Lighthouse and load times](#lighthouse-and-load-times)
 - [Validator Testing](#validator-testing)
 - [Unfixed Bugs, Broken Links, Commented-out Code](#unfixed-bugs-broken-links-commented-out-code)
 
@@ -262,6 +263,19 @@ For tests, I used [Browserling.com](https://www.browserling.com/browse/win10/saf
 I checked accessibility by running my site through the Lighthouse tool on Google Dev tools. Every page scored 100%.
 
 ![](assets/images/readmeImages/accessibilityLighthouse.png)
+
+### Lighthouse and Load Times
+
+Across the site, Lighthouse scores were consistently 100 for both accessibility and best practices. 
+
+Performance times and SEO were generally above 90 in Lighthouse scoring: 
+
+![An overview of lighthouse scores. Performance: 95, Accessibility: 100, Best Practices: 100, SEO: 90](assets/images/readmeImages/lighthouseScores.png)
+
+Here's a breakdown of load times: 
+
+![An overview of performance metrics. First Contentful Paint 0.6s, Total Blocking Time 0ms, Speed Index 0.6s, Largest Contentful Paint 0.6s, Cumulative Layout Shift 0.009](assets/images/readmeImages/lighthousePerformanceBreakdown.png)
+
 
 ### Validator Testing
 
